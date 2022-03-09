@@ -1,14 +1,11 @@
 pipeline {
-  agent { docker { image 'python:3.8-alpine' } }
+  agent {
+    dockerfile { filename 'Dockerfile' }
+  }
   stages {
     stage('build and test') {
       steps {
-        sh """
-        python3 -m venv jenkinsbuild && \
-        source jenkinsbuild/bin/activate && \
-        python3 -m pip install -r requirements.txt && \
-        pytest
-        """
+        sh 'pytest'
       }
     }
   }
