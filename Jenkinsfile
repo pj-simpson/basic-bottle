@@ -12,7 +12,9 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh 'python3 -m pytest'
+        sh """
+        pip freeze
+        """
       }
     }
   }
