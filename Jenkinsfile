@@ -13,7 +13,7 @@ pipeline {
     stage('test') {
       steps {
         sh """
-        pip freeze
+        sudo -H pip freeze
         """
       }
     }
